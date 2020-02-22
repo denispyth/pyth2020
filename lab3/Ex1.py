@@ -18,11 +18,7 @@ def eye_circles(x,y, radius):
 	brushColor("Black")	#fill
 	circle(x,y, radius-(radius/3))
 	
-	
-
-
-	
-	
+		
 x = 200
 y = 200
 radius = 150
@@ -34,15 +30,15 @@ eye_circles(x+radius/2, y-radius/5,radius_eyes*0.7) 	# x,y,radius - прав г�
 
 
 
-polygon([(80,110), (70,120),							# лев бровь
-         (220,300), (230,290)])
+polygon([(x-radius,y-radius), (x-radius+5,y-radius-5),							# лев бровь
+         (x,y-radius_eyes/2), (x-10,y-radius_eyes/2+5)])
 
 		 
-polygon([(310,260), (390,130),							# прав бровь
-         (400,140), (320,270)])
+polygon([(x+20,y-radius_eyes/3+5), (x+10,y-radius_eyes/3),							# прав бровь
+         (x+radius,y-radius+20), (x+radius+5,y-radius+30)])
 		 
 		 
-polygon([(140,400), (340,400),							# рот
-         (340,420), (140,420)])
+polygon([(x-x/2,y+radius_eyes), (x+x/2,y+radius_eyes),							# рот
+         (x+x/2,y+20+radius_eyes), (x-x/2,y+20+radius_eyes)])
 	
 run()

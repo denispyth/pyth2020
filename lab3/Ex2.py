@@ -1,26 +1,47 @@
 from graph import *
 
+def change_color(c_line,c_bg, width):	# Меняем цвет пера, цвет заливки и толщину пера
+	penColor(c_line) 					# Цвет пера
+	brushColor(c_bg)					# Цвет заливки
+	penSize(width)  					# Толщина пера
 	
+def draw_background(width, height):
+	""" делим экран на 2 части	"""
 	
-def draw_background(height):
-	""" делим экран на 2 части
-	"""
-	pass
+	change_color("#D4E8FC","#D4E8FC", 1)	
+	polygon ([	(0,0), (width,0),
+				(width,height/2), (0,height/2)])
+	change_color("#0E9325","#0E9325", 1)	
+	polygon ([	(0,height/2), (width,height/2),
+				(width,height), (0,height)])
 
 	
-def draw_house(х,y,height,width):
+def draw_house(x, y, height, width):
 	""" Рисуем дом	"""
-	pass
+	
+	change_color("Black","#FC730B", 1)	 	#Стены
+	polygon ([	(x, y - height / 2), (x + width, y - height / 2),
+				(x + width, y), (x, y)])
+				
+	
+	change_color("#FC7F36","#2B7FFC", 1)	#Окно
+	polygon ([	(x + width / 3, y - 2 / 5 * height), (x + 2 / 3 * width, y - 2 / 5 * height),
+				(x + 2 / 3 * width, y - 1 / 5 * height), (x + width / 3, y - 1 / 5 * height)])
+	
+	
+	change_color("Black","#EB2F44", 1)	 	#Крыша
+	polygon ([	(x, y - height / 2), (x + width,y - height / 2),
+				(x + width / 2, y - height), (x, y - height / 2)])
 
-def draw_tree(х,y,height,radius):
+def draw_tree(x, y, height, radius):
 	""" Рисуем дерево	"""
 	pass
 
-def draw_cloud(х,y,height,radius):
+def draw_cloud(x, y, height, radius):
 	""" Рисуем облако	"""
 	pass	
 	
-def draw_sun(х,y,radius):
+def draw_sun(x, y, radius):
 	""" Рисуем солнце	"""
 	pass	
 	
@@ -32,37 +53,35 @@ win_width = 600
 
 windowSize(win_width,win_height)
 
-y = win_height/2									#фон
-
-draw_background(y)
+draw_background(win_width,win_height)			#фон
 
 
-х = win_width/6								#нижняя левая точка дома
+x = win_width/8								#нижняя левая точка дома
 y = win_height*2/3
 height = win_width/4							#высота и ширина дома
-width = 1.5*win_width/4
+width = win_width/5
 	
-draw_house(х,y,height,width)
+draw_house(x, y, height, width)
 
-х = 2/3*win_width								#нижняя левая точка дерева
+x = 2/3*win_width								#нижняя левая точка дерева
 y = 5/8*win_height
 height = win_width/4							#высота дерева
 radius = 20										#диаметр веток
 
-draw_tree(х,y,height,radius)	
+draw_tree(x, y, height, radius)	
 
 	
-х = 2/3*win_width								#нижняя левая точка облака
+x = 2/3*win_width								#нижняя левая точка облака
 y = 5/8*win_height
 radius = 20										#диаметр части облака
 
-draw_cloud(х,y,height,radius)	
+draw_cloud(x, y, height, radius)	
 	
-х = 2/3*win_width								#нижняя левая точка солнца
+x = 2/3*win_width								#нижняя левая точка солнца
 y = 5/8*win_height
 radius = 30										#диаметр солнца
 
-draw_sun(х,y,radius)	
+draw_sun(x, y, radius)	
 	
 	
 run()

@@ -1,4 +1,7 @@
 from graph import *
+import turtle
+
+
 
 def draw_circles(x, y, radius, n, kuchnost, horizont):	# Рисуем кроны или облака
 	if horizont == False:				# Рисуем крону дерева (снизу вверх)
@@ -78,7 +81,10 @@ def draw_cloud(x, y, radius):
 	
 def draw_sun(x, y, radius):
 	""" Рисуем солнце	"""
-	pass	
+	change_color("Black","Yellow", 2)
+	circle(x, y, radius)
+	
+		
 	
 
 	
@@ -98,7 +104,7 @@ width = win_width / 5
 	
 draw_house(x, y, height, width)
 
-x = 2 / 3 * win_width								#нижняя левая точка дерева
+x = 5 / 8 * win_width								#нижняя левая точка дерева
 y = 5 / 8 * win_height
 height = win_width / 4							#высота дерева
 radius = 24										#диаметр веток
@@ -112,8 +118,8 @@ radius = 20										#диаметр части облака
 
 draw_cloud(x, y, radius)	
 	
-x = 2 / 3 * win_width								#нижняя левая точка солнца
-y = 1 / 6 * win_height
+x = 7.5 / 10 * win_width								#нижняя левая точка солнца
+y = 1 / 7 * win_height
 radius = 30										#диаметр солнца
 
 draw_sun(x, y, radius)	

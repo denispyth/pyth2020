@@ -65,7 +65,7 @@ def main():
 	root.geometry(str(width)+'x'+str(hight))
 	canv = Canvas(root,bg='white')
 	canv.pack(fill=BOTH,expand=1)
-	l_score = Label(root, bg='black', fg='white', width=20, text="Очки: " + str(score))
+	l_score = Label(root, bg='black', fg='white', width=50, text="Push right-button! And touch balls left-button!")
 	l_score.pack()
 	canv.bind('<Button-1>', click)
 	canv.bind('<Button-3>', generate_balls)
